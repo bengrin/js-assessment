@@ -65,7 +65,12 @@ exports.arraysAnswers = {
   },
 
   count: function(arr, item) {
-
+    return arr.reduce((acc, cur) => {
+      if (cur === item) {
+        acc++;
+      }
+      return acc;
+    }, 0)
   },
 
   duplicates: function(arr) {
