@@ -13,7 +13,10 @@ exports.arraysAnswers = {
   },
 
   sum: function(arr) {
-
+    return arr.reduce((acc, cur) => {
+      acc += cur;
+      return acc;
+    }, 0);
   },
 
   remove: function(arr, item) {
