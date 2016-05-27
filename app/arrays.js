@@ -20,7 +20,9 @@ exports.arraysAnswers = {
   },
 
   remove: function(arr, item) {
-
+    return arr.filter(el => {
+      return el !== item;
+    })
   },
 
   removeWithoutCopy: function(arr, item) {
