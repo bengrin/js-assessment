@@ -74,7 +74,20 @@ exports.arraysAnswers = {
   },
 
   duplicates: function(arr) {
+    let result = [];
 
+    let hash = arr.reduce((acc, cur) => {
+      acc[cur] = acc[cur] + 1 || 1; 
+      return acc;
+    }, {});
+
+    for (let key in hash) {
+      if (hash[key] > 1) {
+        result.push(+key);
+      }
+    }
+
+    return result;
   },
 
   square: function(arr) {
