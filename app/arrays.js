@@ -98,6 +98,11 @@ exports.arraysAnswers = {
   },
 
   findAllOccurrences: function(arr, target) {
-
+    return arr.reduce((acc, cur, i) => {
+      if (cur === target) {
+        acc.push(i);
+      }
+      return acc;
+    }, []);
   }
 };
