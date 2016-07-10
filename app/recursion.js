@@ -2,7 +2,27 @@ exports = typeof window === 'undefined' ? global : window;
 
 exports.recursionAnswers = {
   listFiles: function(data, dirName) {
+    let files = [];
+    const collectFiles = function (dir) {
+      dir.files.forEach((file) => {
+        if (file.constructor === String) {
+          files.push(file);
+        } else if (file.constructor === Object) {
+          collectFiles(file);
+        }
+      });
+    };
+    if (!dirName || data.dir === dirName) {
+      collectFiles(data);
+    } else {
+        for (let i = 0; i < data.files.length; i++) {
+          if (data.files[i].constructor === Object) {
+            return this.listFiles(data.files[i], dirName);
+          }
+        }
+    }
 
+    return files;
   },
 
   permute: function(arr) {
